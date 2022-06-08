@@ -1,0 +1,29 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/pmd-client/node_modules
+/pmd-client/.pnp
+/pmd-client/.pnp.js
+
+# testing
+/pmd-client/coverage
+
+# production
+/pmd-client/build
+
+# misc
+.env
+/pmd-client/.DS_Store
+/pmd-client/.env.local
+/pmd-client/.env.development.local
+/pmd-client/.env.test.local
+/pmd-client/.env.production.local
+
+/pmd-client/npm-debug.log*
+/pmd-client/yarn-debug.log*
+/pmd-client/yarn-error.log*
+
+package-lock.JSON
+/pmd-client/package-lock.json
+/pmd-client/.env

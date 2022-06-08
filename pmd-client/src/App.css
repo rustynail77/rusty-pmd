@@ -1,0 +1,150 @@
+.navbar {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content:space-around;
+  background-color: rgb(170, 170, 170);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 12;
+}
+
+.login {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.secondary-bar {
+  background-color: gray;
+  text-align: center;
+  position: sticky;
+  top: 40px;
+  z-index: 13;
+}
+
+.propertyCards {
+  border: 1px solid gray;
+  border-radius:15px;
+  min-width:300px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(174, 174, 174);
+  background-color: rgba(133, 198, 255, 0.666);
+}
+
+.propertyCards > img {
+  max-width: 90%;
+  height: 150px;
+}
+
+.propertyLines {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1px solid darkgray;
+  width: 100vw;
+}
+
+.propertyLines > h2 {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.propertyLines > img {
+  display: none;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lines {
+  display: inline-block;
+}
+
+.balancesheet {
+  border: 1px solid gray;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+.datasheet {
+  text-align: center;
+}
+
+.datasheet > form> input[type=submit] {
+  font-size: 1.2em;
+}
+
+.striker {
+  text-decoration: line-through;
+  background-color: darkgrey;
+}
+
+h2,h3,h4 {
+  text-align: center;
+  margin: 0;
+  padding: 2%;
+}
+
+h2 {
+  background-image: linear-gradient(to bottom left, #3c589a, #2b9dee);
+  border-radius: 50px;
+  color: white;
+  margin: 5px;
+}
+
+h3,h4 {
+  padding: 0;
+}
+
+.container {
+  background-color:lightgrey;
+}
+
+a {
+  text-decoration: none;
+}
+
+.owners {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.owners > * {
+  margin-left: 20px;
+  min-width: 20%;
+}
+
+.form {
+  text-align: center;
+  width: 100%;
+}
+
+.form > div {
+  margin: 20px;
+}
+
+.form > div > input{
+  font-size: 2em;
+}
+
+#dob {
+  margin-top: 8px;
+}
+
+.textArea {
+  width: 60%;
+}
+
+.inner-button {
+  margin: 5px;
+}
