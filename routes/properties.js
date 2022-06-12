@@ -7,14 +7,10 @@ const defaultImage = 'http://rustynail77.com/budapest-apartments/images/house.pn
 const   { 
         _getAllProperties, 
         _getProperty, 
-        // _searchProperty, 
-        _insertProperty,
-        _deleteProperty,
-        _updateProperty
         } = require('../controllers/properties.js');
+        
 const   {
         insertProperty,
-        insertPropOwnership,
         updateProperty
         } = require ('../modules/properties.js');
 
@@ -37,15 +33,10 @@ const fileFilterFunc = (req,file,cbfunc) => {
 
 const upload = multer({storage:storageFunc, fileFilter: fileFilterFunc})
 
-// router.get('/search', _searchProperty);
 router.get('/prop/:id',_getProperty);
 router.get('/all-props', _getAllProperties);
-// router.post('/prop', _insertProperty);
-router.delete('/prop/:id', _deleteProperty);
-// router.put('/prop/:id', _updateProperty);
 
 router.put('/prop/:id', upload.single('img_src'),(req,res)=>{
-
         if (req.file) req.body['img_src'] = `/${req.file.destination}/${req.file.filename}`;
         console.log('in router:', req.body.active);
         delete req.body.p_id; 
@@ -56,15 +47,10 @@ router.put('/prop/:id', upload.single('img_src'),(req,res)=>{
             .catch(err=>{
                 res.json({msg:err.message})
             })
-        console.log('req.params',req.params);
-        console.log('req.file:',req.file);
-        console.log('req.body:',req.body);
 })
 
 router.post('/prop', upload.single('img_src'),(req,res)=>{
-
         if (req.file) req.body['img_src'] = `/${req.file.destination}/${req.file.filename}`;
-
         delete req.body.p_id; 
         insertProperty(req.body)
         .then(data => {
@@ -73,8 +59,6 @@ router.post('/prop', upload.single('img_src'),(req,res)=>{
             .catch(err=>{
                 res.json({msg:err.message})
             })
-        console.log('req.file:',req.file);
-        console.log('req.body:',req.body);
 })
 
 module.exports = router;

@@ -12,7 +12,7 @@
 
 .login {
   text-align: center;
-  margin-top: 10%;
+  margin-top: 1%;
 }
 
 .secondary-bar {
@@ -141,10 +141,18 @@ a {
   margin-top: 8px;
 }
 
+.form-date > label {
+  background-color: white;
+}
+
 .textArea {
   width: 60%;
 }
 
 .inner-button {
   margin: 5px;
+}
+
+#d_c-select {
+  margin-top: 10px;
 }

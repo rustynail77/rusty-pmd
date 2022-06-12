@@ -1,6 +1,7 @@
 import {useEffect, useState, useContext} from 'react';
 import {AppContext} from '../../App';
 import {useNavigate} from 'react-router-dom';
+
 import dateFormat from '../../modules/dateFormat';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Button from '@mui/material/Button';
@@ -9,16 +10,13 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 
 const AddOwner = (props) => {
-    console.log('dsasddadsadfsdfasfdsafsdfs');
     const navigate = useNavigate();
     const {currProp, setCurrProp} = useContext(AppContext);
     const [activeTogg,setActiveTogg] = useState(true);
     
     useEffect (()=>{
         if (currProp.o_id) {
-            console.log('I found data:', currProp)
             for (let element in currProp) {
-                console.log(element);
                 if (document.getElementsByName(element)[0]) {
                     switch(element) {
                         case 'active':
@@ -31,12 +29,8 @@ const AddOwner = (props) => {
                         default:
                             document.getElementsByName(element)[0].value=currProp[element];
                     }
-                } else {
-                    console.log('element has no corresponding field:',element);
-                } 
+                }
             }
-        } else {
-            console.log('I have NO data')
         }
     },[])
 
@@ -56,7 +50,6 @@ const AddOwner = (props) => {
                 }
             } 
         if (field.name === 'active') {
-                console.log('checked =',field.checked)
                 field.value = field.checked;
         }
         if (field.name) {formData[field.name] = field.value};            
@@ -84,7 +77,6 @@ const AddOwner = (props) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
             alert('Data saved successfully');
         })
         .then(navigate('/'))

@@ -45,7 +45,6 @@ const Balancesheet = (props) => {
         if (method==='credit-debit') {
             sortedByDate = byCD(sortedByDate)
         }
-        console.log(data);
         return sortedByDate;
     }
 
@@ -196,7 +195,7 @@ const Balancesheet = (props) => {
                     {
                     (balanceSheet)?
                     balanceSheet.map((trac,i) => 
-                        (showInactive==false && trac.active==false) ? <></> :
+                        (showInactive===false && trac.active===false) ? <></> :
                             <TableRow 
                                 className={(trac.active)?'':'red-text striker'} 
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }} 
@@ -207,8 +206,8 @@ const Balancesheet = (props) => {
                                 <TableCell align="right">{trac.t_id}</TableCell>
                                 <TableCell align="right">{dateFormat(trac.t_date,'dd/MM/yyyy')}</TableCell>
                                 <TableCell align="right">
-                                    <span className={(trac.debit_credit==1)?'green-text':'red-text'}>
-                                        <b>{(trac.debit_credit==1)?'+':'-'}{trac.amount}$</b>
+                                    <span className={(trac.debit_credit===1)?'green-text':'red-text'}>
+                                        <b>{(trac.debit_credit===1)?'+':'-'}{trac.amount}$</b>
                                     </span>
                                 </TableCell>
                                 <TableCell align="right">{trac.trans_type}</TableCell>

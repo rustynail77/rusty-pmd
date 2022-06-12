@@ -10,8 +10,6 @@ import './App.css';
 import {useState, useEffect, createContext} from 'react';
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
 
-import TestFileUploader from './components/pages/TestFileUploader';
-
 export const AppContext = createContext(null);
 
 function App() {
@@ -31,7 +29,6 @@ function App() {
             }}>
         <Navbar />
         <Routes>
-          <Route path='/test' element={<TestFileUploader />} />
           <Route path='/' element={<Login />} />
           <Route path='/main' element={<Properties />} />
           <Route path='/owners' element={<Owners />} />

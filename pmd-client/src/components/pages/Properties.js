@@ -1,12 +1,5 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-// import {StyledTableCell,StyledTableRow} from '../style/tables';
-// import TableHead from '@mui/material/TableHead';
-// import TableRow from '@mui/material/TableRow';
-// import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableContainer from '@mui/material/TableContainer';
-// import Paper from '@mui/material/Paper';
 
 import {useNavigate} from 'react-router-dom';
 import PropertyCard from '../partials/PropertyCard';
@@ -31,7 +24,6 @@ const Properties = (props) => {
             try {
                 const res = await fetch('http://localhost:5000/api/properties/all-props');
                 const data = await res.json();
-                console.log('data=',data);
                 setProperties(data);
             }  
             catch(err){

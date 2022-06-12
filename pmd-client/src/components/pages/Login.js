@@ -34,13 +34,24 @@ const Login = (props) => {
 
     useEffect(()=> {
         if (userId) {
-            console.log('got a username');
             navigate('/main');
         }
         },[])
 
     return (
             <div className="login">
+
+                <h2>Please log in</h2>
+
+                <p>
+                    This web app was built by Liron S. Levi as a part of a software development portfolio.<br />
+                    It was built with React.js/Node.js and PostgreSQL.<br />
+                    This page is for demonstration purposes only.<br />
+                    There is currently no authentication process, no encryption and no registration form.<br />
+                    To log in, please type in username: 'Rusty' and password: 'Nail77'.<br />
+                    Thank you for taking the time to review this application.<br />
+                </p>
+                <br />
                 Username: <input type="text" name="username" />
                 <br />
                 Password: <input type="password" name="password" />

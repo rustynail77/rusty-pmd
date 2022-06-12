@@ -20,7 +20,6 @@ const Owners = (props) => {
             try {
                 const res = await fetch('http://localhost:5000/api/owners/all-owners');
                 const data = await res.json();
-                console.log('data =',data);
                 setOwners(data);
             }  
             catch(err){

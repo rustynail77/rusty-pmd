@@ -12,7 +12,6 @@ const SingleProp = (props) => {
     const { currProp, setCurrProp } = useContext(AppContext);
     const [propSheet, setPropSheet] = useState({});
     const prop_id = currProp.p_id || currProp.prop_id;
-    console.log('currProp:',currProp);
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -29,15 +28,13 @@ const SingleProp = (props) => {
                 const data = await res.json();
                 const resOwners = await fetch('http://localhost:5000/api/owners/all-owners');
                 const dataAllOwners = await resOwners.json();
-                console.log('property:',data);
-                console.log('owners:',dataAllOwners);
+                
                 const dataOwners = dataAllOwners.filter(dataOwner=>data[0].ownership.includes(dataOwner.o_id));
                 const propertySheet = {
                     property : data,
                     owners: dataOwners
                 }
                 setPropSheet(propertySheet);
-                console.log('loaded propertySheet:',propertySheet);
             }  
             catch(err){
                 console.log(err);

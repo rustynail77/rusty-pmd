@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 
-import {useEffect, useState, useContext} from 'react';
+import {useState, useContext} from 'react';
 import {AppContext} from '../../App';
 import {useNavigate} from 'react-router-dom';
 
@@ -23,8 +23,8 @@ const PropertyCard = (props) => {
 
     const navigate = useNavigate();
 
-    const { cardDisplay, setCardDisplay, 
-            currProp, setCurrProp
+    const { cardDisplay, 
+            setCurrProp
         } = useContext(AppContext);
     
     const property = props.property;
@@ -32,9 +32,7 @@ const PropertyCard = (props) => {
     const [currImg,setCurrImg] = useState(property.img_src);
 
     const handleClick = (property) => {
-        // console.log('clicked',property.p_id);
         setCurrProp(property);
-        console.log('about to nav to show-prop with:', property);
         navigate('/show-prop');
     }
 
@@ -50,7 +48,7 @@ const PropertyCard = (props) => {
     return (
         <>
         {
-        (props.inactive==false && property.active==false) ? <></> :    
+        (props.inactive===false && property.active===false) ? <></> :    
         <div className={(cardDisplay==='cards')?'propertyCards':'propertyLines'}>
                 {
                   (cardDisplay==='cards')?

@@ -16,6 +16,7 @@ const _getPropTracs = (req,res) => {
 }
 
 const _insertTrac = (req, res) => {
+    console.log('req.body in controllers:',req.body);
     insertTrac(req.body)
     .then(data => {
         res.json(data)
