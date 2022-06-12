@@ -24,9 +24,9 @@ const SingleProp = (props) => {
     useEffect(()=> {
         const getSinglePropertySheet = async() => {
             try {
-                const res = await fetch(`http://localhost:5000/api/properties/prop/${prop_id}`);
+                const res = await fetch(`/api/properties/prop/${prop_id}`);
                 const data = await res.json();
-                const resOwners = await fetch('http://localhost:5000/api/owners/all-owners');
+                const resOwners = await fetch('/api/owners/all-owners');
                 const dataAllOwners = await resOwners.json();
                 
                 const dataOwners = dataAllOwners.filter(dataOwner=>data[0].ownership.includes(dataOwner.o_id));

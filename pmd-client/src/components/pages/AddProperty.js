@@ -36,7 +36,7 @@ const AddProperty = (props) => {
     useEffect (()=> {
         const getOwners = async() => {
             try {
-                const res = await fetch('http://localhost:5000/api/owners/all-owners');
+                const res = await fetch('/api/owners/all-owners');
                 const data = await res.json();
                 console.log('owners:',data);
                 setOwners(data);

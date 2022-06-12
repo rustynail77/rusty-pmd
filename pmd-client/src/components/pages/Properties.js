@@ -22,7 +22,7 @@ const Properties = (props) => {
     useEffect(()=> {
         const getProperties = async() => {
             try {
-                const res = await fetch('http://localhost:5000/api/properties/all-props');
+                const res = await fetch('/api/properties/all-props');
                 const data = await res.json();
                 setProperties(data);
             }  

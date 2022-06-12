@@ -53,7 +53,7 @@ const Balancesheet = (props) => {
         const getBalanceSheetForProp = async () => {
             try {
                 let prop_id = currProp.prop_id || currProp.p_id;
-                const res = await fetch(`http://localhost:5000/api/transactions/trac/${prop_id}`);
+                const res = await fetch(`/api/transactions/trac/${prop_id}`);
                 const data = await res.json();
 
                 let sortedData = sortData(data);
