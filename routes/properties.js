@@ -38,7 +38,6 @@ router.get('/all-props', _getAllProperties);
 
 router.put('/prop/:id', upload.single('img_src'),(req,res)=>{
         if (req.file) req.body['img_src'] = `/${req.file.destination}/${req.file.filename}`;
-        console.log('in router:', req.body.active);
         delete req.body.p_id; 
         updateProperty(req.params.id, req.body)
         .then(data => {

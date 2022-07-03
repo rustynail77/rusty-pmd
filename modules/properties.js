@@ -7,17 +7,12 @@ const getAllProperties = () => {
     .orderBy('p_id')
 }
 
-// const getProperty = (property_id) => {
-//     return db('properties')
-//     .select('*')
-//     .where({p_id:property_id})
-// }
 
 const getProperty = (property_id) => {
     return db('properties')
     .select('*')
     .where({p_id:property_id})
-    .join('transactions','properties.p_id','transactions.prop_id')    
+    // .join('transactions','properties.p_id','transactions.prop_id')    
 }
 
 // const searchProperty = (query) => {

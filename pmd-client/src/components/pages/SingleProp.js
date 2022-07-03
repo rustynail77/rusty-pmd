@@ -23,16 +23,21 @@ const SingleProp = (props) => {
 
     useEffect(()=> {
         const getSinglePropertySheet = async() => {
+            
             try {
                 const res = await fetch(`/api/properties/prop/${prop_id}`);
                 const data = await res.json();
                 const resOwners = await fetch('/api/owners/all-owners');
-                const dataAllOwners = await resOwners.json();
-                
+                const dataAllOwners = await resOwners.json() || [];
+                const tracs = await fetch(`/api/transactions/trac/${prop_id}`);
+                const tracsData = await tracs.json();
+                data[0].ownership = (!data[0].ownership) ? [] : data[0].ownership;
+
                 const dataOwners = dataAllOwners.filter(dataOwner=>data[0].ownership.includes(dataOwner.o_id));
                 const propertySheet = {
                     property : data,
-                    owners: dataOwners
+                    owners: dataOwners,
+                    tracs: tracsData
                 }
                 setPropSheet(propertySheet);
             }  
@@ -67,7 +72,7 @@ const SingleProp = (props) => {
                         {
                         propSheet.owners.map((owner,i)=>
                             <Grid item xs={1} md={2} key={i}>
-                                <Item>{owner.fname} {owner.lname}</Item>
+                                <Item key={i}>{owner.fname} {owner.lname}</Item>
                             </Grid>
                         )
                         }
@@ -75,7 +80,8 @@ const SingleProp = (props) => {
                     </Grid>
                         
                     </Box>
-                    <Balancesheet data={propSheet.property} />
+                    {/* <Balancesheet data={propSheet.property} /> */}
+                    <Balancesheet data={propSheet.tracsData} />
                 </> : <></>
             }
         </div>
